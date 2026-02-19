@@ -1,10 +1,16 @@
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ProductPage from "./pages/ProducPage";
 
-Navbar;
 export default function App() {
   return (
-    <>
-      <Navbar />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/AboutPage" Component={AboutPage} />
+        <Route path="/ProducPage" Component={ProductPage} />
+      </Routes>
+    </BrowserRouter>
   );
 }
