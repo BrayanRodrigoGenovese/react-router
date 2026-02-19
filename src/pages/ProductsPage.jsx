@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ export default function ProductPage() {
         setProducts(response.data);
       })
       .catch((error) => {
-        console.log("errore API");
+        console.log("Errore API");
       });
   }, []);
 
@@ -22,14 +23,17 @@ export default function ProductPage() {
       <h1>products</h1>
       <div>
         {products.map((product) => (
-          <div key={product.id}>
-            <h5>{product.category}</h5>
+          <Link key={product.id} to={`/ProductsPage/${product.id}`}>
             <h2>{product.title}</h2>
-            <p>{product.description}</p>
+            <img
+              src={product.image}
+              alt={product.title}
+              style={{ width: "200px" }}
+            />
             <p>
               <strong>{product.price} €</strong>
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

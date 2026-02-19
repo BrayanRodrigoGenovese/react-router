@@ -12,7 +12,7 @@ export default function Navbar() {
             <NavLink to="/AboutPage">Chi Siamo</NavLink>
           </li>
           <li>
-            <NavLink to="/ProducPage">Prodotti</NavLink>
+            <NavLink to="/ProductsPage">Prodotti</NavLink>
           </li>
         </ul>
       </nav>
