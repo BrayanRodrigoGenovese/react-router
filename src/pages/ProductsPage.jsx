@@ -23,7 +23,7 @@ export default function ProductPage() {
       <h1>products</h1>
       <div>
         {products.map((product) => (
-          <Link key={product.id} to={`/ProductsPage/${product.id}`}>
+          <Link key={product.id} to={`/Products/${product.id}`}>
             <h2>{product.title}</h2>
             <img
               src={product.image}
