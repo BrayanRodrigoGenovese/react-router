@@ -6,13 +6,20 @@ export default function Navbar() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Homepage</NavLink>
+            <NavLink className="nav-link" to="/">
+              {/* <img src="src/assets/img/react.svg" id="home-icon" /> */}
+              Homepage
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/AboutPage">Chi Siamo</NavLink>
+            <NavLink className="nav-link" to="/AboutPage">
+              Chi Siamo
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/Products">Prodotti</NavLink>
+            <NavLink className="nav-link" to="/Products">
+              Prodotti
+            </NavLink>
           </li>
         </ul>
       </nav>

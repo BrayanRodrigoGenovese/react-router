@@ -18,24 +18,43 @@ export default function ProductPage() {
   }, []);
 
   return (
-    <div>
+    <>
       <Navbar />
-      <h1>products</h1>
-      <div>
-        {products.map((product) => (
-          <Link key={product.id} to={`/Products/${product.id}`}>
-            <h2>{product.title}</h2>
-            <img
-              src={product.image}
-              alt={product.title}
-              style={{ width: "200px" }}
-            />
-            <p>
-              <strong>{product.price} €</strong>
-            </p>
-          </Link>
-        ))}
-      </div>
-    </div>
+
+      <main>
+        <div className="products-title">
+          <h1>Products</h1>
+          <p className="sub-title">
+            Controlla ciascuna pagina del prodotto per maggiori informazioni.
+          </p>
+        </div>
+        <div id="products-container">
+          {products.map((product) => {
+            const [intero, centesimi] = product.price.toFixed(2).split(".");
+            return (
+              <Link key={product.id} to={`/Products/${product.id}`}>
+                <div className="card">
+                  <div className="img-container">
+                    <img src={product.image} alt={product.title} />
+                  </div>
+
+                  <div className="infos">
+                    <h2>{product.title}</h2>
+                    <p>
+                      {product.rating.rate} <span>{product.rating.count}</span>
+                    </p>
+                    <p className="price">
+                      {intero}
+                      <span>{centesimi}€</span>
+                    </p>
+                    {/* <button>Add to basket</button> */}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </main>
+    </>
   );
 }
