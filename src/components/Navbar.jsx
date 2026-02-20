@@ -6,9 +6,9 @@ export default function Navbar() {
       <nav>
         <ul>
           <li>
-            <NavLink className="nav-link" to="/">
-              {/* <i ref="/Users/brayanrodrigogenovese/Desktop/react-router/src/assets/img/react.svg"></i> */}
-              Homepage
+            <NavLink className="nav-item-home" to="/">
+              <img src="/src/assets/img/react.svg" alt="" />
+              <span>Homepage</span>
             </NavLink>
           </li>
           <li>

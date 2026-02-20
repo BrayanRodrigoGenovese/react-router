@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -9,49 +8,47 @@ export default function ProductPage() {
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => {
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        console.log("Errore API");
-      });
+      .then((response) => setProducts(response.data))
+      .catch((error) => console.log("Errore API", error));
   }, []);
 
   return (
-    <>
-      <div className="container">
-        <div className="title">
-          <h1>Products</h1>
-          <p className="sub-title">
-            Controlla ciascuna pagina del prodotto per maggiori informazioni.
-          </p>
-        </div>
-        <div id="products-container">
-          {products.map((product) => {
-            const [intero, centesimi] = product.price.toFixed(2).split(".");
-            return (
-              <Link key={product.id} to={`/Products/${product.id}`}>
-                <div className="card">
-                  <div className="img-container">
-                    <img src={product.image} alt={product.title} />
-                  </div>
-                  <div className="infos">
-                    <h2>{product.title}</h2>
-                    <p>
-                      {product.rating.rate} <span>{product.rating.count}</span>
-                    </p>
-                    <p className="price">
-                      {intero}
-                      <span>{centesimi}€</span>
-                    </p>
-                    {/* <button>Add to basket</button> */}
+    <div className="container page-content">
+      <div className="page-header">
+        <h1>Products</h1>
+        <p className="sub-title">
+          Controlla ciascuna pagina del prodotto per maggiori informazioni.
+        </p>
+      </div>
+      <div className="products-grid">
+        {products.map((product) => {
+          const [intero, centesimi] = product.price.toFixed(2).split(".");
+          return (
+            <Link
+              key={product.id}
+              to={`/Products/${product.id}`}
+              className="card-link"
+            >
+              <div className="card">
+                <div className="img-container">
+                  <img src={product.image} alt={product.title} />
+                </div>
+
+                <div className="infos">
+                  <h2 className="card-title">{product.title}</h2>
+                  <p className="rating">
+                    {product.rating.rate} <span>{product.rating.count}</span>
+                  </p>
+                  <div className="price-container">
+                    <span className="price-intero">{intero}</span>
+                    <span className="price-centesimi">{centesimi}€</span>
                   </div>
                 </div>
-              </Link>
-            );
-          })}
-        </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }
