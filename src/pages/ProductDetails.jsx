@@ -22,7 +22,6 @@ export default function ProductDetails() {
   if (!product) {
     return (
       <div>
-        <Navbar />
         <p>Caricamento dati...</p>
       </div>
     );
@@ -31,8 +30,7 @@ export default function ProductDetails() {
   // Quando arrivano i dati, stampiamo la pagina
   return (
     <>
-      <Navbar />
-      <main className="product-details">
+      <div className="product-details">
         <div className="image-details">
           <img src={product.image} alt={product.title} />
         </div>
@@ -43,7 +41,7 @@ export default function ProductDetails() {
           <h2>About this item</h2>
           <p>{product.description}</p>
         </div>
-      </main>
+      </div>
     </>
   );
 }

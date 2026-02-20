@@ -3,8 +3,7 @@ import Navbar from "../components/Navbar";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
-      <main>
+      <div className="container">
         <h1>Homepage</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ad non
@@ -12,7 +11,7 @@ export default function HomePage() {
           cumque molestias! Dicta voluptas fugit itaque alias ducimus rerum.
           Ipsam, harum?
         </p>
-      </main>
+      </div>
     </>
   );
 }

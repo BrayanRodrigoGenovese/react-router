@@ -19,10 +19,8 @@ export default function ProductPage() {
 
   return (
     <>
-      <Navbar />
-
-      <main>
-        <div className="products-title">
+      <div className="container">
+        <div className="title">
           <h1>Products</h1>
           <p className="sub-title">
             Controlla ciascuna pagina del prodotto per maggiori informazioni.
@@ -37,7 +35,6 @@ export default function ProductPage() {
                   <div className="img-container">
                     <img src={product.image} alt={product.title} />
                   </div>
-
                   <div className="infos">
                     <h2>{product.title}</h2>
                     <p>
@@ -54,7 +51,7 @@ export default function ProductPage() {
             );
           })}
         </div>
-      </main>
+      </div>
     </>
   );
 }
